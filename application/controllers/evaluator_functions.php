@@ -56,10 +56,10 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="../views/evaluation-approve.php<?php echo '?id='.$row['household_id']; ?>">
+                                    <a href="../views/evaluation-availment-approve.php<?php echo '?id='.$row['roster_id']; ?>">
                                         <button type="button" class="btn btn-xs btn-primary">Approve</button>
                                     </a>
-                                    <a href="../views/evaluation-pending.php<?php echo '?id='.$row['household_id']; ?>">
+                                    <a href="../actions/evaluation-reject.php<?php echo '?id='.$row['roster_id']; ?>">
                                         <button type="button" class="btn btn-xs btn-danger">Reject</button>
                                     </a>
                                 </td>
