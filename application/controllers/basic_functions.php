@@ -71,10 +71,21 @@
                                     <a href="dashboard.php" class=" hvr-bounce-to-right"><i class="fa fa-dashboard nav_icon "></i><span class="nav-label">Home</span> </a>
                                 </li>
                                 <li>
-                                    <a href="benificiary.php" class=" hvr-bounce-to-right"><i class="fa fa-check-square-o nav_icon"></i><span class="nav-label">Encoding</span> </a>
+                                    <a href="benificiary.php" class=" hvr-bounce-to-right"><i class="fa fa-file-text nav_icon"></i><span class="nav-label">Encoding</span> </a>
                                 </li>
                                 <li>
-                                    <a href="evaluation.php" class=" hvr-bounce-to-right"><i class="fa fa-th nav_icon"></i><span class="nav-label">Evaluation</span> </a>
+                                    <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-th nav_icon"></i> <span class="nav-label">Evaluation</span><span class="fa arrow"></span></a>
+                                    <ul class="nav nav-second-level">
+                                        <li>
+                                            <a href="evaluation-pending.php" class=" hvr-bounce-to-right"><i class="fa fa-lightbulb-o nav_icon"></i>Pending</a>
+                                        </li>
+                                        <li>
+                                            <a href="evaluation-approve.php" class=" hvr-bounce-to-right"><i class="fa fa-check-square-o nav_icon"></i>Approve</a>
+                                        </li>
+                                        <li>
+                                            <a href="evaluation-rejected.php" class=" hvr-bounce-to-right"><i class="fa fa-times nav_icon"></i>Rejected</a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li>
                                     <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-cog nav_icon"></i> <span class="nav-label">Configuration</span><span class="fa arrow"></span></a>
@@ -119,7 +130,18 @@
                                     <a href="dashboard.php" class=" hvr-bounce-to-right"><i class="fa fa-dashboard nav_icon "></i><span class="nav-label">Home</span> </a>
                                 </li>
                                 <li>
-                                    <a href="evaluation.php" class=" hvr-bounce-to-right"><i class="fa fa-th nav_icon"></i><span class="nav-label">Evaluation</span> </a>
+                                    <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-th nav_icon"></i> <span class="nav-label">Evaluation</span><span class="fa arrow"></span></a>
+                                    <ul class="nav nav-second-level">
+                                        <li>
+                                            <a href="evaluation-pending.php" class=" hvr-bounce-to-right"><i class="fa fa-lightbulb-o nav_icon"></i>Pending</a>
+                                        </li>
+                                        <li>
+                                            <a href="evaluation-approve.php" class=" hvr-bounce-to-right"><i class="fa fa-check-square-o nav_icon"></i>Approve</a>
+                                        </li>
+                                        <li>
+                                            <a href="evaluation-rejected.php" class=" hvr-bounce-to-right"><i class="fa fa-times nav_icon"></i>Rejected</a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li>
                                     <a href="../actions/logout.php" class=" hvr-bounce-to-right"><i class="fa fa-info-circle nav_icon"></i><span class="nav-label">Logout</span> </a>
