@@ -40,15 +40,15 @@
                     <!--banner-->	
                     <div class="banner">
                         <h2>
-                            <a href="evaluation-<?php echo $_GET['type'] ?>.php">Evaluation</a>
+                            <a href="evaluation-household.php?id=<?php echo $_GET['id'] ?>&type=<?php echo $_GET['type'] ?>">Evaluation</a>
                             <i class="fa fa-angle-right"></i>
-                            <span>Benificiary Profile</span>
+                            <span>View Household</span>
                         </h2>
                     </div>
                     <!--//banner-->
                     
                     <!--content-->
-                    <?php evaluationProfile($conn) ?>
+                    <?php viewEvaluatorHousehold($conn) ?>
                     <!--//content-->
 
                     <?php get_Footer() ?>

@@ -51,7 +51,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="../views/edithousehold.php<?php echo '?id='.$row['household_id']; ?>">
+                                    <a href="../views/evaluation-household.php?id=<?php echo $roster_id ?>&type=<?php echo $type ?>">
                                         <button type="button" class="btn btn-xs btn-warning">Check List</button>
                                     </a>
                                 </td>
@@ -87,7 +87,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="../views/evaluation-household-list.php?id=<?php echo $roster_id?>">
+                                    <a href="../views/evaluation-household.php?id=<?php echo $roster_id?>&type=<?php echo $type ?>">
                                         <button type="button" class="btn btn-xs btn-warning">Check List</button>
                                     </a>
                                 </td>
@@ -211,4 +211,153 @@
         }
     }
 
+    if(!function_exists('evaluationHouseHoldTable')){
+        function evaluationHouseHoldTable($conn){
+            ?>
+                <div class="validation-system">
+                    <div class="validation-form">
+                        <table class="table">
+                            <thead>
+                                <tr class="table-row">
+                                    <th>First Name</th>
+                                    <th>Middle Name</th>
+                                    <th>Family Name</th>
+                                    <th>Gender</th>
+                                    <th>Profile</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php getEvaluationHouseholdDetails($conn) ?>                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            <?php
+        }
+    }
+
+    if(!function_exists('getEvaluationHouseholdDetails')){
+        function getEvaluationHouseholdDetails($conn){
+            $roster_id = $_GET['id'];
+            $query = mysqli_query($conn, "SELECT * from tbl_household_roster where roster_id = '$roster_id' ");
+            if(mysqli_num_rows($query) > 0){
+                while($row = mysqli_fetch_array($query)){
+                    ?>
+                        <tr class="table-row">
+                            <td class="march">
+                                <?php echo $row['first_name'] ?>
+                            </td>
+                            <td class="march">
+                                <?php echo $row['middle_name'] ?>
+                            </td>
+                            <td class="mcarh">
+                                <?php echo $row['family_name'] ?>
+                            </td>
+                            <td class="march">
+                                <?php echo $row['sex'] ?>
+                            </td>
+                            <td>
+                                <a href="../views/evaluation-household-profile.php?id=<?php echo $row['household_id']; ?>&type=<?php echo $_GET['type'] ?>">
+                                    <button type="button" class="btn btn-xs btn-primary">View</button>
+                                </a>
+                            </td>
+                        </tr>
+                <?php
+                }
+            }else{
+                echo "No Household Found";
+            }
+        }
+    }
+
+    if(!function_exists('viewEvaluatorHousehold')){
+        function viewEvaluatorHousehold($conn){
+            ?>
+                <div class="validation-system">
+                    <div class="validation-form">
+                        <?php $household_id = $_GET['id']; ?>
+                        <form method="POST" action="../actions/edithousehold.php?id=<?php echo $household_id; ?>">
+                            <div class="vali-form">
+                                <div class="col-md-4 form-group1">
+                                    <label class="control-label">First Name</label>
+                                    <input type="text" readonly name="firstname" value="<?php echo getHouseholdDetailsById($conn, $household_id) [2] ?>" required="">
+                                </div>
+                                <div class="col-md-4 form-group1 form-last">
+                                    <label class="control-label">Middle Name (Optional)</label>
+                                    <input type="text" readonly name="middlename" value="<?php echo getHouseholdDetailsById($conn, $household_id) [3] ?>">
+                                </div>
+                                <div class="col-md-4 form-group1 form-last">
+                                    <label class="control-label">Family Name</label>
+                                    <input type="text" readonly name="familyname" value="<?php echo getHouseholdDetailsById($conn, $household_id) [4] ?>" required="">
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            
+                            <div class="col-md-6 form-group1">
+                                <label class="control-label">Extension Name (Optional)</label>
+                                <input type="text" readonly name="extensionname" value="<?php echo getHouseholdDetailsById($conn, $household_id) [5] ?>">
+                            </div>
+
+                            <div class="col-md-6 form-group1">
+                                <label class="control-label">Relationship w/ Benificiary</label>
+                                <input type="text" readonly name="relationship" value="<?php echo getHouseholdDetailsById($conn, $household_id) [6] ?>" required="">
+                            </div>
+
+                            <div class="clearfix"> </div>
+
+                            <div class="vali-form">
+                                <div class="col-md-4 form-group2">
+                                    <label class="control-label">Gender</label>
+                                    <select readonly name="sex" required="">
+                                    <option selected value="<?php echo getHouseholdDetailsById($conn, $household_id) [8] ?>"><?php echo getHouseholdDetailsById($conn, $household_id) [8] ?></option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-8 form-group2">
+                                    <label class="control-label ">Birth Date</label>
+                                    <input type="date" readonly name="birthday" class="form-control1 ng-invalid ng-invalid-required" ng-model="model.date" value="<?php echo getHouseholdDetailsById($conn, $household_id) [7] ?>" required="">
+                                </div>
+                            </div>
+
+                            <div class="vali-form"> </div>
+
+                            <div class="clearfix"> </div>
+                            <div class="vali-form">
+                                <div class="col-md-6 form-group1">
+                                    <label class="control-label">Purok / Sitio</label>
+                                    <input type="text" readonly name="purok" value="<?php echo getHouseholdDetailsById($conn, $household_id) [9] ?>" requried="">
+                                </div>
+                                <div class="col-md-6 form-group1">
+                                    <label class="control-label">Barangay</label>
+                                    <input type="text" readonly name="barangay" value="<?php echo getHouseholdDetailsById($conn, $household_id) [10] ?>" required="">
+                                </div>
+                                <div class="col-md-6 form-group1 form-last">
+                                    <label class="control-label">City / Municipality</label>
+                                    <input type="text" readonly name="city" value="<?php echo getHouseholdDetailsById($conn, $household_id) [11] ?>" required="">
+                                </div>
+                                <div class="col-md-6 form-group1">
+                                    <label class="control-label">Province</label>
+                                    <input type="text" readonly name="province" value="<?php echo getHouseholdDetailsById($conn, $household_id) [12] ?>" required="">
+                                </div>
+                                <div class="col-md-6 form-group1 form-last">
+                                    <label class="control-label">Region</label>
+                                    <input type="text" readonly name="region" value="<?php echo getHouseholdDetailsById($conn, $household_id) [13] ?>" required="">
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        
+                            <div class="col-md-12 form-group">
+                                <a href="evaluation-household.php?id=<?php echo $_GET['id'] ?>&type=<?php echo $_GET['type'] ?>">
+                                    <button type="button" class="btn btn-danger">Close</button>
+                                </a>
+                            </div>
+
+                            <div class="clearfix"> </div>
+                        </form>
+                    </div>  
+                </div>
+            <?php
+        }
+    }
 ?>
