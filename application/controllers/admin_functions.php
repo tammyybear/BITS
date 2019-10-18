@@ -450,4 +450,92 @@ include "user_functions.php";
             }
         }
     }
+
+    if(!function_exists('addProgram')){
+        function addProgram(){
+            ?>
+                <div class="validation-system">
+                    <div class="validation-form">
+                    
+                        <form method="POST" action="../actions/addprograms.php">
+                            <div class="vali-form">
+                                <div class="col-md-8 form-group1">
+                                    <label class="control-label">Program Name</label>
+                                    <input type="text" name="programname" placeholder="Program name" required="">
+                                </div>
+                                <div class="col-md-8 form-group1 form-last">
+                                    <label class="control-label">Program Description</label>
+                                    <input type="text" name="programdesc" placeholder="Program Description" required="">
+                                </div>
+                                <div class="col-md-8 form-group1 form-last">
+                                    <label class="control-label">Program Amount</label>
+                                    <input type="text" name="programamt" placeholder="Program Amount" required="">
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        
+                            <div class="col-md-12 form-group">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="reset" class="btn btn-warning">Reset</button>
+                            <a href="programs.php">
+                                <button type="button" class="btn btn-danger">Cancel</button>
+                            </a>
+                            </div>
+                        <div class="clearfix"> </div>
+                        </form>
+                    </div>
+                </div>
+            <?php
+        }
+    }
+
+    if(!function_exists('editProgram')){
+        function editProgram($conn, $program_id){
+            ?>
+                <div class="validation-system">
+                    <div class="validation-form">
+                    
+                        <form method="POST" action="../actions/editprograms.php?id=<?php echo $program_id ?>">
+                            <div class="vali-form">
+                                <div class="col-md-8 form-group1">
+                                    <label class="control-label">Program Name</label>
+                                    <input type="text" name="programname" value="<?php echo getProgramDetailsById($conn, $program_id)[1] ?>" required="">
+                                </div>
+                                <div class="col-md-8 form-group1 form-last">
+                                    <label class="control-label">Program Description</label>
+                                    <input type="text" name="programdesc" value="<?php echo getProgramDetailsById($conn, $program_id)[2] ?>" required="">
+                                </div>
+                                <div class="col-md-8 form-group1 form-last">
+                                    <label class="control-label">Program Amount</label>
+                                    <input type="text" name="programamt" value="<?php echo getProgramDetailsById($conn, $program_id)[3] ?>" required="">
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        
+                            <div class="col-md-12 form-group">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="reset" class="btn btn-warning">Reset</button>
+                            <a href="programs.php">
+                                <button type="button" class="btn btn-danger">Cancel</button>
+                            </a>
+                            </div>
+                        <div class="clearfix"> </div>
+                        </form>
+                    </div>
+                </div>
+            <?php
+        }
+    }
+
+    if(!function_exists('getProgramDetailsById')){
+        function getProgramDetailsById($conn, $program_id){
+            include "database_functions.php";
+            $program_details = array();
+            $query = mysqli_query($conn, "SELECT * from tbl_program where program_id = '$program_id'");
+            while($row = mysqli_fetch_array($query)){
+                array_push($program_details, $row['program_id'], $row['program_name'], $row['program_description'], $row['program_amount']);
+            }
+            return $program_details;
+        }
+    }
 ?>

@@ -186,7 +186,7 @@
     if(!function_exists('getHouseholdDetails')){
         function getHouseholdDetails($conn){
             $roster_id = $_GET['id'];
-            $query = mysqli_query($conn, "SELECT * from tbl_household_roster where roster_id = '$roster_id'");
+            $query = mysqli_query($conn, "SELECT * from tbl_household_roster where roster_id = '$roster_id' ");
             if(mysqli_num_rows($query) > 0){
                 while($row = mysqli_fetch_array($query)){
                     ?>
