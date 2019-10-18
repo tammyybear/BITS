@@ -390,4 +390,64 @@ include "user_functions.php";
             return $user_details;
         }
     }
+
+    if(!function_exists('programsTable')){
+        function programsTable($conn){
+            ?>
+                <div class="validation-system">
+                    <div class="validation-form">
+                        <table class="table">
+                            <thead>
+                                <tr class="table-row">
+                                    <th>Program Name</th>
+                                    <th>Program Description</th>
+                                    <th>Program Amount</th>
+                                    <th>Update</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php getProgramDetails($conn) ?>                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            <?php
+        }
+    }
+
+    if(!function_exists('getProgramDetails')){
+        function getProgramDetails($conn){
+            $query = mysqli_query($conn, "SELECT * from tbl_program ORDER BY program_id");
+            if(mysqli_num_rows($query) > 0){
+                while($row = mysqli_fetch_array($query)){
+                    ?>
+                        <tr class="table-row">
+                            <td class="march">
+                                <?php echo $row['program_name'] ?>
+                            </td>
+                            <td class="march">
+                                <?php echo $row['program_description'] ?>
+                            </td>
+                            <td class="mcarh">
+                                <?php echo $row['program_amount'] ?>
+                            </td>
+                            <td>
+                                <a href="editprograms.php<?php echo '?id='.$row['program_id']; ?>">
+                                    <button type="button" class="btn btn-xs btn-warning warning_44">Edit</button>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="../actions/deleteprograms.php<?php echo '?id='.$row['program_id']; ?>">
+                                    <button type="button" class="btn btn-xs btn-danger">Delete</button>
+                                </a>
+                            </td>
+                        </tr>
+                <?php
+                }
+            }else{
+                echo "No Program Found";
+            }
+        }
+    }
 ?>

@@ -71,17 +71,17 @@
                                     <a href="dashboard.php" class=" hvr-bounce-to-right"><i class="fa fa-dashboard nav_icon "></i><span class="nav-label">Home</span> </a>
                                 </li>
                                 <li>
-                                    <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-check-square-o nav_icon"></i> <span class="nav-label">Encoding</span><span class="fa arrow"></span></a>
-                                    <ul class="nav nav-second-level">
-                                        <li><a href="addbenificiary.php" class=" hvr-bounce-to-right"><i class="fa fa-file-o nav_icon"></i>Add Benificiary</a></li>
-                                        <li><a href="benificiary.php" class=" hvr-bounce-to-right"><i class="fa fa-file-o nav_icon"></i>Benificiaries</a></li>
-                                    </ul>
+                                    <a href="benificiary.php" class=" hvr-bounce-to-right"><i class="fa fa-check-square-o nav_icon"></i><span class="nav-label">Encoding</span> </a>
                                 </li>
                                 <li>
                                     <a href="evaluation.php" class=" hvr-bounce-to-right"><i class="fa fa-th nav_icon"></i><span class="nav-label">Evaluation</span> </a>
                                 </li>
                                 <li>
-                                    <a href="accounts.php" class=" hvr-bounce-to-right"><i class="fa fa-cog nav_icon"></i><span class="nav-label">Configuration</span> </a>
+                                    <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-cog nav_icon"></i> <span class="nav-label">Configuration</span><span class="fa arrow"></span></a>
+                                    <ul class="nav nav-second-level">
+                                        <li><a href="accounts.php" class=" hvr-bounce-to-right"><i class="fa fa-users nav_icon"></i>Accounts</a></li>
+                                        <li><a href="programs.php" class=" hvr-bounce-to-right"><i class="fa fa-list nav_icon"></i>Programs</a></li>
+                                    </ul>
                                 </li>
                                 <li>
                                     <a href="../actions/logout.php" class=" hvr-bounce-to-right"><i class="fa fa-info-circle nav_icon"></i><span class="nav-label">Logout</span> </a>
@@ -100,11 +100,7 @@
                                     <a href="dashboard.php" class=" hvr-bounce-to-right"><i class="fa fa-dashboard nav_icon "></i><span class="nav-label">Home</span> </a>
                                 </li>
                                 <li>
-                                    <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-check-square-o nav_icon"></i> <span class="nav-label">Encoding</span><span class="fa arrow"></span></a>
-                                    <ul class="nav nav-second-level">
-                                        <li><a href="addbenificiary.php" class=" hvr-bounce-to-right"><i class="fa fa-file-o nav_icon"></i>Add Benificiary</a></li>
-                                        <li><a href="benificiary.php" class=" hvr-bounce-to-right"><i class="fa fa-file-o nav_icon"></i>Benificiaries</a></li>
-                                    </ul>
+                                    <a href="benificiary.php" class=" hvr-bounce-to-right"><i class="fa fa-check-square-o nav_icon"></i><span class="nav-label">Encoding</span> </a>
                                 </li>
                                 <li>
                                     <a href="../actions/logout.php" class=" hvr-bounce-to-right"><i class="fa fa-info-circle nav_icon"></i><span class="nav-label">Logout</span> </a>
