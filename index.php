@@ -32,6 +32,7 @@
                         </div>
                     </div>
                     <div class="col-md-6 login-do">
+                        <hr>
                         <label class="hvr-shutter-in-horizontal login-sub">
                             <input type="submit" value="Login">
                         </label>
