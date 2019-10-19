@@ -360,4 +360,61 @@
             <?php
         }
     }
+
+    if(!function_exists('getInventoryDropDown')){
+        function getInventoryDropDown($conn){
+            ?>
+            <select name = "inventory_cat_id" class="form-control form-control-line" required>
+                <?php 
+                    $query = mysqli_query($conn, "SELECT * from inventory_category_tb");
+                    while($row = mysqli_fetch_array($query)){
+                        ?>
+                        <option value = "<?php echo $row['inventory_cat_id'] ?>"><?php echo $row['category'] ?></option>
+                        <?php
+                    }
+                ?>
+            </select>
+            <?php
+        }
+    }
+
+    if(!function_exists('selectProgram')){
+        function selectProgram($conn){
+            ?>
+                <div class="validation-system">
+                    <div class="validation-form">
+                    
+                        <form method="POST" action="../actions/evaluation-approve.php?id=<?php echo $_GET['id']?>">
+                            
+                            <div class="vali-form">
+                                <div class="col-md-12 form-group1">
+                                    <label class="control-label">Program Name</label>
+                                </div>
+                                <div class="col-md-8 form-group1">
+                                    <select name="program_id" required="">
+                                        <?php
+                                            $query = mysqli_query($conn, "SELECT * from tbl_program");
+                                            while($row = mysqli_fetch_array($query)){
+                                                ?>
+                                                    <option value="<?php echo $row['program_id'] ?>"><?php echo "{$row['program_name']} - {$row['program_amount']}"?></option>
+                                                <?php
+                                            }
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <a href="evaluation-pending.php">
+                                    <button type="button" class="btn btn-danger">Cancel</button>
+                                </a>
+                            </div>
+                        <div class="clearfix"> </div>
+                        </form>
+                    </div>
+                </div>
+            <?php
+        }
+    }
 ?>
