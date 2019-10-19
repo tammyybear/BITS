@@ -35,8 +35,8 @@
                         <label class="hvr-shutter-in-horizontal login-sub">
                             <input type="submit" value="Login">
                         </label>
-                        <p>Already have an account?</p>
-                        <a href="apply.html" class="hvr-shutter-in-horizontal">Search</a>
+                        <!-- <p>Already have an account?</p>
+                        <a href="apply.html" class="hvr-shutter-in-horizontal">Search</a> -->
                     </div>
                     
                     <div class="clearfix">
