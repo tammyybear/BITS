@@ -17,7 +17,7 @@
     </head>
     <body>
         <div class="login">
-            <h1><a href="index.php">BENIFICIARIES INFORMATION<br>TRACKING SYSTEM</a></h1>
+            <h1><a href="index.php">BENEFICIARIES INFORMATION<br>TRACKING SYSTEM</a></h1>
             <div class="login-bottom">
                 <h2>Login</h2>
                 <form method="POST" action="application/actions/login.php">
